@@ -13,7 +13,7 @@ A simple template to create a microservice with knexjs with mysql.
 
 ## Usage For Development
 
-First run `npm install`, then to start development run `npm run dev:start`.
+First run `npm install`, then run `npm found`. To start development run `npm run dev:start`.
 
 ## Usage For Production
 
