@@ -25,6 +25,16 @@ const getConfig = () => {
 
   config.state = process.env.NODE_ENV;
 
+  config.dataBaseName = process.env.DATA_BASE_NAME;
+
+  config.dataBaseHost = process.env.DATA_BASE_HOST;
+
+  config.dataBasePassword = process.env.DATA_BASE_PASSWORD;
+
+  config.dataBaseUser = process.env.DATA_BASE_USER;
+
+  config.dataBasePort = parseInt(process.env.DATA_BASE_PORT);
+
   return config;
 };
 

@@ -5,7 +5,7 @@ import ServerInitialization from '../../src/server/ServerInitialization';
 
 const baseRoute = '/example';
 
-describe('Ejemplo de test para la creacion correcta de una ruta', () => {
+describe('Example routes works accordingly', () => {
   let serverInitialization: ServerInitialization;
   let createdRoute: Route;
 
@@ -16,7 +16,7 @@ describe('Ejemplo de test para la creacion correcta de una ruta', () => {
     serverInitialization.createServer();
   });
 
-  it('La ruta base es la adecuada', () => {
+  it('The route base is correct', () => {
     expect(createdRoute.route).toBe(baseRoute);
   });
 

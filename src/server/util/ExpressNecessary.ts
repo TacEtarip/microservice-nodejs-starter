@@ -1,5 +1,6 @@
 import { Application } from 'express';
 import { Server } from 'http';
+import { Knex } from 'knex';
 import Route from './Route';
 
 /**
@@ -8,6 +9,7 @@ import Route from './Route';
 export interface IExpressNecessaryFunctions {
   addBasicConfiguration(): void;
   addRoutes(route: Route): void;
+  addKnexjsConfig(): void;
   createServer(): Server;
 }
 
@@ -20,4 +22,5 @@ export interface IExpressNecessaryParams {
   server: Server;
   routes: string[];
   port: number;
+  knexPool: Knex;
 }

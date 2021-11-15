@@ -6,7 +6,12 @@ import bunyan from 'bunyan';
 export class ConfigGlobalDto {
   state: string;
   port: number;
+  dataBaseName: string;
   log: () => bunyan;
+  dataBaseHost: string;
+  dataBasePort: number;
+  dataBaseUser: string;
+  dataBasePassword: string;
 }
 
 export default new ConfigGlobalDto();

@@ -9,6 +9,8 @@ import {
   IExpressNecessaryFunctions,
   IExpressNecessaryParams,
 } from './util/ExpressNecessary';
+import knex, { Knex } from 'knex';
+import getConfig from '../config/main.config';
 
 /**
  *
@@ -21,15 +23,37 @@ class ServerInitialization
   server: http.Server;
   port: number;
   routes: string[] = [];
+  knexPool: Knex;
+
+  configuration = getConfig();
 
   /**
    *Creates an instance of ExpressAPP.
    * @memberof ExpressAPP
    */
   constructor(port: number) {
+    this.addKnexjsConfig();
     this.app = express();
     this.port = port;
     this.addBasicConfiguration();
+  }
+
+  /**
+   * @description Adds the necessary knexjs configuration
+   */
+  addKnexjsConfig(): void {
+    this.knexPool = knex({
+      client: 'mysql2',
+      version: '5.7',
+      connection: {
+        host: this.configuration.dataBaseHost,
+        port: this.configuration.dataBasePort,
+        user: this.configuration.dataBaseUser,
+        password: this.configuration.dataBasePassword,
+        database: this.configuration.dataBaseName,
+      },
+      pool: { min: 0, max: 5 },
+    });
   }
 
   /**

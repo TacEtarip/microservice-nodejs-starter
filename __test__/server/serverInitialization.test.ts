@@ -14,6 +14,7 @@ describe('Create an express app and an http server', () => {
     jest.spyOn(ServerInitialization.prototype, 'addBasicConfiguration');
     jest.spyOn(ServerInitialization.prototype, 'addRoutes');
     jest.spyOn(ServerInitialization.prototype, 'createServer');
+    jest.spyOn(ServerInitialization.prototype, 'addKnexjsConfig');
     serverInitialization = new ServerInitialization(testPort);
     const routeTest = new Route('/test');
     routeTest.router.get('/', (req, res) => {
@@ -35,6 +36,7 @@ describe('Create an express app and an http server', () => {
     expect(serverInitialization.addBasicConfiguration).toHaveBeenCalledTimes(1);
     expect(serverInitialization.addRoutes).toHaveBeenCalledTimes(1);
     expect(serverInitialization.createServer).toHaveBeenCalledTimes(1);
+    expect(serverInitialization.addKnexjsConfig).toHaveBeenCalledTimes(1);
   });
 
   it('Adds a path correctly', async () => {
