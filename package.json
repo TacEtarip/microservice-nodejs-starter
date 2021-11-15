@@ -4,7 +4,7 @@
   "description": "A template to use knex with mysql",
   "main": "./dist/main.js",
   "scripts": {
-    "test": "cross-env NODE_ENV=test jest --verbose --silent --collectCoverage",
+    "test": "cross-env NODE_ENV=test jest --verbose --silent --collectCoverage && jest-coverage-badges",
     "test:watch": "npm test -- --watch",
     "start": "cross-env NODE_ENV=production node ./dist/main.js | bunyan",
     "dev:start": "cross-env NODE_ENV=development npx ts-node-dev ./src/index.ts | bunyan",
@@ -44,6 +44,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.3.1",
+    "jest-coverage-badges": "^1.1.2",
     "nodemon": "^2.0.15",
     "prettier": "^2.4.1",
     "supertest": "^6.1.6",
